@@ -1,0 +1,100 @@
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// Colors
+$colors: (
+        "color-grays-1": #f8f9fa,
+        "color-grays-2": #e9ecef,
+        "color-grays-3": #dee2e6,
+        "color-grays-4": #ced4da,
+        "color-grays-5": #adb5bd,
+        "color-grays-6": #6c757d,
+        "color-grays-7": #495057,
+        "color-grays-8": #343a40,
+        "color-grays-9": #212529,
+        "color-grays-10": #111111,
+        "color-black":#000,
+        "color-cyan-500": #00B0CA,
+        "color-cyan-900": #007C92,
+        "color-light-green-100": #D9F0D9,
+        "color-light-green-500": #ABB400,
+        "color-purple-500": #4848cd,
+        "color-purple-400":#4141a7,
+        "color-purple-300":#6A5ACD,
+        "color-purple-900": #5E2750,
+        "color-orange-500": #EB9700,
+        "color-amber-100": #FCF0D9,
+        "color-amber-500": #FECB00,
+        "color-green": #009900,
+        "color-white": #FFFFFF,
+        "color-light-grey":#ecede7,
+        "color-light-blue":#1193FA,
+);
+
+// Text Sizes
+$text-sizes: (
+        3 xs: 8px,
+        xxs: 10px,
+        xs: 12px,
+        sm: 14px,
+        md: 16px,
+        lg: 18px,
+        xl: 20px,
+        xxl: 26px,
+        3 xl: 28px,
+        4 xl: 32px,
+        5 xl: 36px,
+);
+
+// Font Weights
+$font-weights: (
+        200: 200,
+        300: 300,
+        400: 400,
+        500: 500,
+        600: 600,
+        700: 700,
+        800: 800,
+);
+
+.position {
+  &-top {
+    position: absolute;
+    top: 0;
+  }
+
+  &-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &-bottom {
+    position: absolute;
+    bottom: 0;
+  }
+
+  &-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &-bottom-center {
+    position: absolute;
+    left: 70px;
+    top: 190px;
+  }
+}
+
+
+

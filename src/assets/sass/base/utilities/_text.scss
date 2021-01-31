@@ -1,0 +1,13 @@
+// Font Size
+@each $name, $value in $text-sizes {
+  .text-#{$name} {
+    @include text-size($size: $value);
+  }
+}
+
+// Font Weight
+@each $name, $value in $font-weights {
+  .font-weight-#{$name} {
+    @include font-weight($weight: $value);
+  }
+}

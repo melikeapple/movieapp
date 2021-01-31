@@ -1,0 +1,11 @@
+//
+// Text
+//
+
+@mixin text-size($size) {
+  font-size: $size !important;
+}
+
+@mixin font-weight($weight) {
+  font-weight: $weight !important;
+}
