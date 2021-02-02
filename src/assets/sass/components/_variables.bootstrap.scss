@@ -17,7 +17,7 @@ $spacers: (
 // Color system
 
 $white: #fff !default;
-$lightgrey : #ecede7 !default;
+$lightgrey: #ecede7 !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -27,7 +27,7 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$purple: get($colors, color-purple-500) !default;
+$light-black: #0B071E !default;
 $black: #000 !default;
 
 $grays: (
@@ -44,11 +44,15 @@ $grays: (
 // Colors
 
 $blue: #4e71ba !default;
+$darkblue: #37384D !default;
+$lightblack: #0B071E !default;
 $lightblue: #1193FA !default;
 $slateblue: #6A5ACD !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
 $lightpurple: #985ad9 !default;
+$bluepurple: #262642 !default;
+$darkbluepurple: #1e1e36 !default;
 $pink: #d63384 !default;
 $red: #dc3545 !default;
 $lightred: #ff5b40 !default;
@@ -58,16 +62,20 @@ $green: #198754 !default;
 $teal: #38d49e !default;
 $cyan: #0dcaf0 !default;
 $turquoise: #48d1cc !default;
-$lightgrey:#ecede7 !default;
+$lightgrey: #ecede7 !default;
 
 // scss-docs-start colors-map
 $colors: (
         "blue": $blue,
         "lightblue": $lightblue,
+        "lightblack": $lightblack,
+        "darkblue": $darkblue,
         "slateblue":$slateblue,
         "indigo": $indigo,
         "purple": $purple,
         "lightpurple":$lightpurple,
+        "bluepurple":$bluepurple,
+        "darkbluepurple":$darkbluepurple,
         "pink": $pink,
         "red": $red,
         "lightred": $lightred,
@@ -91,9 +99,13 @@ $teal: $teal !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
+$darkblue: $darkblue !default;
+$lightblack: $lightblack !default;
 $lightred: $lightred !default;
 $lightblue: $lightblue !default;
 $lightpurple: $lightpurple !default;
+$bluepurple: $bluepurple !default;
+$darkbluepurple: $darkbluepurple !default;
 $light: $gray-100 !default;
 $lightgrey: $lightgrey !default;
 $dark: $gray-900 !default;
@@ -101,6 +113,8 @@ $dark: $gray-900 !default;
 $theme-colors: (
         "primary": $primary,
         "lightblue": $lightblue,
+        "lightblack": $lightblack,
+        "darkblue":$darkblue,
         "secondary": $secondary,
         "purple": $purple,
         "teal": $teal,
@@ -110,6 +124,8 @@ $theme-colors: (
         "danger": $danger,
         "lightred":$lightred,
         "lightpurple":$lightpurple,
+        "bluepurple":$bluepurple,
+        "darkbluepurple":$darkbluepurple,
         "slateblue":$slateblue,
         "light": $light,
         "lightgrey":$lightgrey,
@@ -119,8 +135,10 @@ $theme-colors: (
 // Border radius
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-width:            0 !default;
-$btn-border-radius: 5px !default;
+$btn-border-width: 0 !default;
+$btn-border-radius: 0 !default;
 
-$list-group-border-radius:          0 !default;
+$list-group-border-radius: 0 !default;
+
+$dropdown-border-radius:   0 !default;
 
