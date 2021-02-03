@@ -8,7 +8,6 @@ const DropdownSelect = ({ label, onSelect, selectFirstItem, data, item }) => {
 
   const onClick = (payload) => {
     setValue(payload);
-    onSelect(payload);
   };
 
   useEffect(() => {
@@ -36,14 +35,13 @@ const DropdownSelect = ({ label, onSelect, selectFirstItem, data, item }) => {
           </div>
         </div>
       </Dropdown.Toggle>
-
       <Dropdown.Menu className="bg-darkbluepurple w-100 p-0">
         {data.map((entity, index) => (
           <Dropdown.Item
             key={index}
             eventKey={entity.id}
             onClick={() => onClick(entity)}
-            active={_.isEqual(value, entity)}
+            active={_.isEqual(entity, value)}
           >
             {entity.title}
           </Dropdown.Item>

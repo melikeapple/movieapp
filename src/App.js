@@ -1,12 +1,15 @@
+import { hot } from "react-hot-loader/root";
 import React from "react";
-import HomePage from "./components/HomePage";
+import Router from "./router/Router";
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <>
+      <div className="App">
+        <Router />
+      </div>
+    </>
   );
 }
 
-export default App;
+export default hot(App);
