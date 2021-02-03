@@ -1,5 +1,13 @@
 .dropdown-select {
   box-shadow: 3px 3px 5px get($colors,color-light-black);
+  .dropdown-menu {
+    padding: 0;
+    width: 100%;
+
+    .show {
+      padding: 0;
+    }
+  }
 
   .dropdown-item {
     padding: 10px;
@@ -39,11 +47,4 @@
   }
 }
 
-.dropdown-menu {
-  padding: 0;
-  width: 100%;
 
-  .show {
-    padding: 0;
-  }
-}
