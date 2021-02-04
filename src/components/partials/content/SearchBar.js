@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Row,
   Col,
@@ -12,12 +13,23 @@ import SearchIcon from "@material-ui/icons/Search";
 import ClearSharpIcon from "@material-ui/icons/ClearSharp";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import DropdownSelect from "../layout/DropdownSelect";
+import { actions } from "../../../store/ducks/search.movie.duck";
 
 const SearchBar = () => {
-  const [open, setOpen] = useState(true);
+  const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
 
   const onSelect = (payload) => {
     console.log({ payload });
+  };
+
+  const onChange = (payload) => {
+    console.log("payload", payload);
+    if (payload.length > 2) {
+      dispatch(actions.searchMovieRequest(payload));
+    } else {
+      dispatch(actions.searchMovieResetStore());
+    }
   };
 
   return (
@@ -37,6 +49,7 @@ const SearchBar = () => {
                     <FormControl
                       className="border-0 bg-lightblack text-light"
                       placeholder="Search"
+                      onChange={(e) => onChange(e.target.value)}
                     />
                     <InputGroup.Append className="">
                       <div className="d-flex align-items-center px-3 bg-lightblack text-light">
@@ -60,7 +73,7 @@ const SearchBar = () => {
         </div>
       </div>
       <Collapse in={open}>
-        <div id="collapse" className="w-100 bg-darkbluepurple py-5">
+        <div id="collapse" className="w-100 bg-bluepurple py-5">
           <Container>
             <Row>
               <Col>

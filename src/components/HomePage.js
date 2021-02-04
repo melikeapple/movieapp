@@ -1,10 +1,10 @@
 import React from "react";
-import SearchBar from "./partials/content/SearchBar";
+import SearchResult from "./partials/content/SearchResult";
 
 const HomePage = () => {
   return (
     <div>
-      <SearchBar />
+      <SearchResult />
     </div>
   );
 };

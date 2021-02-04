@@ -8,6 +8,7 @@ const DropdownSelect = ({ label, onSelect, selectFirstItem, data, item }) => {
 
   const onClick = (payload) => {
     setValue(payload);
+    onSelect(payload);
   };
 
   useEffect(() => {

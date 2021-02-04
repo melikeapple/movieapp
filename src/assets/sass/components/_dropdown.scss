@@ -15,11 +15,14 @@
     color: white;
     font-size: 14px;
 
-    &:active, &:hover {
+    &:visited {
+      background-color: get($colors,color-darkblue);
+    }
+     &:not(.active):hover {
       background-color: #0B071E;
       color: whitesmoke;
+     }
 
-    }
 
     &-menu {
       border-radius: 0;
