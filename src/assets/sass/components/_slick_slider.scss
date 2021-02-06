@@ -1,0 +1,31 @@
+.slick-slider {
+  height: 100%;
+  background-color: white;
+
+  .slick-arrow {
+    &::before {
+      content: "";
+    }
+  }
+
+  .slick-list {
+    height: 100%;
+
+    .slick-track {
+    }
+  }
+}
+
+.slick-left {
+  position: absolute;
+  left: -3px;
+  top: 145px;
+  color: white;
+}
+
+.slick-right {
+  position: absolute;
+  right: -10px;
+  top: 143px;
+  color: white;
+}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {
   Row,
   Col,
@@ -13,23 +13,41 @@ import SearchIcon from "@material-ui/icons/Search";
 import ClearSharpIcon from "@material-ui/icons/ClearSharp";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import DropdownSelect from "../layout/DropdownSelect";
-import { actions } from "../../../store/ducks/search.movie.duck";
+import { actions } from "../../store/ducks/search.movie.duck";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const { movie_search } = useSelector(
+    ({ movie_search }) => ({ movie_search }),
+    shallowEqual
+  );
 
-  const onSelect = (payload) => {
-    console.log({ payload });
-  };
-
-  const onChange = (payload) => {
-    console.log("payload", payload);
-    if (payload.length > 2) {
-      dispatch(actions.searchMovieRequest(payload));
+  useEffect(() => {
+    if (query.length > 2) {
+      dispatch(actions.searchMovieRequest(query));
     } else {
       dispatch(actions.searchMovieResetStore());
     }
+  }, [query]);
+
+  const onSelect = (payload, type) => {
+    if (payload && payload.title) {
+      dispatch(
+        actions.searchMovieRequest({
+          year: type === "year" && payload.title,
+          with_genres: type === "with_genres" && payload.title,
+          page: 1,
+        })
+      );
+    } else {
+      return payload;
+    }
+  };
+
+  const clearSearch = () => {
+    setQuery("");
   };
 
   return (
@@ -49,11 +67,15 @@ const SearchBar = () => {
                     <FormControl
                       className="border-0 bg-lightblack text-light"
                       placeholder="Search"
-                      onChange={(e) => onChange(e.target.value)}
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
                     />
                     <InputGroup.Append className="">
                       <div className="d-flex align-items-center px-3 bg-lightblack text-light">
-                        <ClearSharpIcon style={{ fontSize: 24 }} />
+                        <ClearSharpIcon
+                          style={{ fontSize: 24 }}
+                          onClick={clearSearch}
+                        />
                       </div>
                     </InputGroup.Append>
                   </InputGroup>
@@ -80,8 +102,10 @@ const SearchBar = () => {
                 <div className="d-flex">
                   <DropdownSelect
                     label="Genre"
-                    onSelect={onSelect}
-                    selectFirstItem
+                    placeholder={"Seçin"}
+                    disabled={false}
+                    onSelect={(payload) => onSelect(payload, "with_genres")}
+                    selectFirstItem={true}
                     data={[
                       {
                         id: 1,
@@ -103,7 +127,7 @@ const SearchBar = () => {
                   />{" "}
                   <DropdownSelect
                     label="Year"
-                    onSelect={onSelect}
+                    onSelect={(payload) => onSelect(payload, "year")}
                     selectFirstItem
                     data={[
                       {

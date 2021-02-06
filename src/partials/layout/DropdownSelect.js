@@ -3,7 +3,15 @@ import React, { useEffect, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
-const DropdownSelect = ({ label, onSelect, selectFirstItem, data, item }) => {
+const DropdownSelect = ({
+  placeholder,
+  disabled,
+  label,
+  onSelect,
+  selectFirstItem,
+  data,
+  item,
+}) => {
   const [value, setValue] = useState();
 
   const onClick = (payload) => {
@@ -25,13 +33,18 @@ const DropdownSelect = ({ label, onSelect, selectFirstItem, data, item }) => {
 
   return (
     <Dropdown className="dropdown-select ml-3 bg-bluepurple">
-      <Dropdown.Toggle className="h-100" variant="" id="dropdown-basic">
+      <Dropdown.Toggle
+        disabled={disabled}
+        className="h-100"
+        variant=""
+        id="dropdown-basic"
+      >
         <div className="d-flex flex-column text-light ">
           <div className="d-flex justify-content-start pb-1 text-xs">
             <div>{label}</div>
           </div>
           <div className="d-flex justify-content-between text-sm">
-            {value?.title}
+            {value?.title || placeholder}
             <KeyboardArrowDownIcon />
           </div>
         </div>

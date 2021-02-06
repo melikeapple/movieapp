@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `Issues`
+react-router-dom v5 you need to use history v4 (the latest version of which is 4.10.1) 
+https://stackoverflow.com/questions/54315988/connectedrouter-error-could-not-find-router-reducer-in-state-tree-it-must-be-m
