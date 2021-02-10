@@ -1,4 +1,5 @@
 import { takeLatest, call, put, delay } from "redux-saga/effects";
+import _ from "lodash";
 import axios from "axios";
 
 export const actionTypes = {
@@ -69,20 +70,29 @@ export function* saga() {
       try {
         const { response, error } = yield call(
           axios.get,
-          `https://api.themoviedb.org/3/search/movie?api_key=b0d65862c66030895d7983da2bd70edd&language=en-US&query=${payload}&include_adult=false`
+          `https://api.themoviedb.org/3/search/movie?api_key=b0d65862c66030895d7983da2bd70edd&language=en-US&query=${payload.inputValue}&include_adult=false`
         );
 
         // yield delay(3000);
 
         if (error) {
           yield put(actions.searchMovieRequestError(error));
+          payload.callback([]);
+          return;
         }
 
         yield put(actions.searchMovieRequestSuccess(response));
-
+        payload.callback(
+          _.map(response.results, (entity) => ({
+            id: entity.id,
+            label: entity.original_title,
+            value: _.kebabCase(entity.original_title),
+          }))
+        );
         console.log("response:", response);
       } catch (e) {
         console.log("Saga Error:", e);
+        payload.callback([]);
       }
     }
   );

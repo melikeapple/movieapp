@@ -1,3 +1,7 @@
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      'Lato', sans-serif;
+$font-family-monospace:       'Lato', sans-serif;
+
 // Spacing
 
 $spacers: (
@@ -54,7 +58,7 @@ $lightpurple: #985ad9 !default;
 $bluepurple: #262642 !default;
 $darkbluepurple: #1e1e36 !default;
 $pink: #d63384 !default;
-$red: #dc3545 !default;
+$red: #E22A36 !default;
 $lightred: #ff5b40 !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
@@ -140,5 +144,14 @@ $btn-border-radius: 0 !default;
 
 $list-group-border-radius: 0 !default;
 
-$dropdown-border-radius:   0 !default;
+$dropdown-border-radius: 0 !default;
 
+.react-select {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+
+  .css-1okebmr-indicatorSeparator {
+    display: none;
+  }
+}
