@@ -70,7 +70,7 @@ export function* saga() {
       try {
         const { response, error } = yield call(
           axios.get,
-          `https://api.themoviedb.org/3/search/movie?api_key=b0d65862c66030895d7983da2bd70edd&language=en-US&query=${payload.inputValue}&include_adult=false`
+          `http://api.themoviedb.org/3/search/multi?api_key=b0d65862c66030895d7983da2bd70edd&language=en-US&page=1&include_adult=false&query=${payload.inputValue}`
         );
 
         // yield delay(3000);

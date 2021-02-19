@@ -1,0 +1,18 @@
+.partial-collapse {
+
+  &.collapse, &.collapsing {
+    height: 3rem;
+  }
+
+  &.collapse {
+    position: relative;
+    overflow: hidden;
+    &:not(.show) {
+      display: block;
+    }
+
+    &.show {
+      height: auto;
+    }
+  }
+}

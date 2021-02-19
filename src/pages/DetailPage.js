@@ -1,41 +1,45 @@
-import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { shallowEqual, useSelector, useDispatch } from 'react-redux'
-import { actions } from '../store/ducks/movie.detail.duck'
-import { DetailHero } from '../components/DetailHero'
-import DetailBody from '../components/DetailBody'
-const DetailPage = () => {
-  const dispatch = useDispatch()
+import React, { useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { shallowEqual, useSelector, useDispatch } from "react-redux";
+import { actions } from "../store/ducks/movie.detail.duck";
+import DetailHero from "../components/DetailHero";
+import DetailBody from "../components/DetailBody";
 
-  const { query } = useSelector(({ router }) => ({
-    query: router.location.query,
-  }))
+const DetailPage = () => {
+  const dispatch = useDispatch();
+
+  const { query } = useSelector(
+    ({ router }) => ({
+      query: router.location.query,
+    }),
+    shallowEqual
+  );
 
   useEffect(() => {
-    dispatch(actions.movieDetailRequest(query))
-    console.log('query', query)
-  }, [query])
+    dispatch(actions.movieDetailRequest(query));
+    console.log("query", query);
+  }, [query]);
 
   return (
     <>
-      <DetailHero data={query} />
+      <DetailHero />
 
       <Container>
         <div
           style={{
             marginTop: -70,
-            position: 'relative',
+            position: "relative",
           }}
         >
           <Row>
-            <Col md={8} className="pr-md-0">
+            <Col lg={8} className="pr-md-0">
               <DetailBody />
             </Col>
-            <Col md={4} className="pl-md-0">
+            <Col lg={4} className="pl-md-0">
               <div
                 className="h-100"
                 style={{
-                  backgroundColor: '#1F1F1F',
+                  backgroundColor: "#1F1F1F",
                 }}
               >
                 asdas
@@ -45,7 +49,7 @@ const DetailPage = () => {
         </div>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default DetailPage
+export default DetailPage;

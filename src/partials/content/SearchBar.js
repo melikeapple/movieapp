@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Container, Nav, Navbar } from 'react-bootstrap'
-import { actions } from '../../store/ducks/search.movie.duck'
-import CustomSelect from './CustomSelect'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { Row, Col, Container, Nav, Navbar } from "react-bootstrap";
+import { actions } from "../../store/ducks/search.movie.duck";
+import CustomSelect from "./CustomSelect";
 
 const SearchBar = () => {
-  const dispatch = useDispatch()
-  const [query, setQuery] = useState('')
+  const dispatch = useDispatch();
+  const [query, setQuery] = useState("");
 
   const { movie_search } = useSelector(
     ({ movie_search }) => ({ movie_search }),
-    shallowEqual,
-  )
+    shallowEqual
+  );
 
   useEffect(() => {
     if (query.length > 2) {
-      dispatch(actions.searchMovieRequest(query))
+      dispatch(actions.searchMovieRequest(query));
     } else {
-      dispatch(actions.searchMovieResetStore())
+      dispatch(actions.searchMovieResetStore());
     }
-  }, [query])
+  }, [query]);
 
   const onSelect = (payload, type) => {
     if (payload && payload.title) {
       dispatch(
         actions.searchMovieRequest({
-          year: type === 'year' && payload.title,
-          with_genres: type === 'with_genres' && payload.title,
+          year: type === "year" && payload.title,
+          with_genres: type === "with_genres" && payload.title,
           page: 1,
-        }),
-      )
+        })
+      );
     } else {
-      return payload
+      return payload;
     }
-  }
+  };
 
   return (
     <>
@@ -115,6 +115,6 @@ const SearchBar = () => {
       {/*  />*/}
       {/*</div>*/}
     </>
-  )
-}
-export default SearchBar
+  );
+};
+export default SearchBar;

@@ -1,5 +1,5 @@
-import React from 'react'
-import SearchBar from '../content/SearchBar'
+import React from "react";
+import SearchBar from "../content/SearchBar";
 
 const Layout = ({ children }) => {
   return (
@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
       <SearchBar />
       <div className="bg-darkbluepurple">{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
