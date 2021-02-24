@@ -6,13 +6,12 @@ import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 import moment from "moment";
 
 const MovieDetailDesc = ({ data }) => {
-  console.log("DetailDescData:", data.entity);
   const [open, setOpen] = useState(false);
 
   return (
     <>
       {data.entity && (
-        <div className="col-md-8 pt-5 pt-md-0">
+        <div className="col-md-8 pt-5 pt-md-0 pb-5">
           <div className="row">
             <div className="col-sm">
               <div className="separator d-flex justify-content-around align-items-center text-light bg-danger px-5 py-3">
@@ -76,25 +75,29 @@ const MovieDetailDesc = ({ data }) => {
               </div>
               <div className="py-1">
                 Creators:
-                {_.take(data.entity.credits.crew, 2).map((cre, index) => (
-                  <a
-                    key={index}
-                    className="text-muted text-decoration-none ml-3"
-                  >
-                    {cre.name}
-                  </a>
-                ))}
+                <a href="#" className="text-muted text-decoration-none ml-1">
+                  {_.reduce(
+                    _.take(data.entity.credits.crew, 3),
+                    (acc, current, index, source) =>
+                      acc +
+                      current.name +
+                      (source.length - 1 === index ? "" : ", "),
+                    ""
+                  )}
+                </a>
               </div>
               <div className="py-1">
                 Stars:
-                {_.take(data.entity.credits.cast, 3).map((act, index) => (
-                  <a
-                    key={index}
-                    className="text-muted text-decoration-none ml-3"
-                  >
-                    {act.name}
-                  </a>
-                ))}
+                <a href="#" className="text-decoration-none text-muted">
+                  {_.reduce(
+                    _.take(data.entity.credits.cast, 3),
+                    (acc, current, index, source) =>
+                      acc +
+                      current.name +
+                      (source.length - 1 === index ? "" : ","),
+                    " "
+                  )}
+                </a>
               </div>
             </div>
           </div>

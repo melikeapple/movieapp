@@ -18,7 +18,6 @@ const DetailPage = () => {
   useEffect(() => {
     dispatch(actions.movieDetailRequest(query));
     dispatch(actions.movieDetailRequestResetStore());
-    console.log("query", query);
   }, [query]);
 
   return (

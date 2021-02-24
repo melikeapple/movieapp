@@ -5,6 +5,7 @@ export const actionTypes = {
   TrendMovieRequest: "[Movie Api] Trend Movie Request",
   TrendMovieRequestSuccess: "[Movie Api] Trend Movie Request Success",
   TrendMovieRequestError: "[Movie Api] Trend Movie Request Error",
+  TrendMovieResetStore: "[Movie Api] Trend Movie Reset Store",
 };
 
 const initialState = {
@@ -35,6 +36,9 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         error: payload,
       };
+    case actionTypes.TrendMovieResetStore:
+      return initialState;
+
     default:
       return state;
   }
@@ -51,6 +55,9 @@ export const actions = {
   trendMovieRequestError: (payload) => ({
     type: actionTypes.TrendMovieRequestError,
     payload,
+  }),
+  trendMovieResetStore: () => ({
+    type: actionTypes.TrendMovieResetStore,
   }),
 };
 

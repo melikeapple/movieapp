@@ -5,6 +5,7 @@ export const actionTypes = {
   PopularMovieRequest: "[Movie Api] Popular Movie Request",
   PopularMovieRequestSuccess: "[Movie Api] Popular Movie Request Success",
   PopularMovieRequestError: "[Movie Api] Popular Movie Request Error",
+  PopularMovieResetStore: "[Movie Api] Popular Movie Reset Store",
 };
 
 const initialState = {
@@ -35,6 +36,10 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         error: payload,
       };
+
+    case actionTypes.PopularMovieResetStore:
+      return initialState;
+
     default:
       return state;
   }
@@ -51,6 +56,9 @@ export const actions = {
   popularMovieRequestError: (payload) => ({
     type: actionTypes.PopularMovieRequestError,
     payload,
+  }),
+  popularMovieResetStore: () => ({
+    type: actionTypes.PopularMovieResetStore,
   }),
 };
 

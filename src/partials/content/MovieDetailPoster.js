@@ -7,7 +7,7 @@ const MovieDetailPoster = ({ data }) => {
   return (
     <>
       <div className="col-md-4">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden pb-5">
           {data.entity && (
             <Image
               src={`https://image.tmdb.org/t/p/original/${data.entity.poster_path}`}

@@ -1,21 +1,21 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { Section } from "../partials/content/Section";
+import { Section } from "./Section";
 import DoubleArrowIcon from "@material-ui/icons/DoubleArrow";
 
-const DetailCast = ({ data }) => {
+const MovieDetailCast = ({ data }) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-sm">
+        <div className="col">
           <Section>
             <Section.Header />
             <Section.Body>
-              <div className="text-dark text-lg font-weight-bold pb-1">
+              <div className="text-dark text-md font-weight-bold pb-1 pt-6">
                 Cast
               </div>
 
-              <Table striped borderless hover bsPrefix="table">
+              <Table striped borderless bsPrefix="table">
                 <tbody>
                   {data.entity &&
                     data.entity.credits.cast &&
@@ -25,7 +25,7 @@ const DetailCast = ({ data }) => {
                         <tr>
                           <th className="table-poster">
                             <img
-                              className="w-100 h-100"
+                              className="h-100"
                               src={
                                 cas.profile_path
                                   ? `https://image.tmdb.org/t/p/original/${cas.profile_path}`
@@ -47,7 +47,6 @@ const DetailCast = ({ data }) => {
                             ... as {cas.character}
                           </th>
                         </tr>
-                        <div style={{ padding: 1 }} />
                       </React.Fragment>
                     ))}
                 </tbody>
@@ -62,4 +61,4 @@ const DetailCast = ({ data }) => {
     </div>
   );
 };
-export default DetailCast;
+export default MovieDetailCast;
