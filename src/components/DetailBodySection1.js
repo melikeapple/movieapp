@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import MovieDetailPoster from "../partials/content/MovieDetailPoster";
 import MovieDetailDesc from "../partials/content/MovieDetailDesc";
@@ -6,7 +6,7 @@ import MovieDetailCast from "../partials/content/MovieDetailCast";
 import PeopleLikeMovie from "../partials/content/PeopleLikeMovie";
 import MovieDetailStory from "../partials/content/MovieDetailStory";
 
-const DetailBody = () => {
+const DetailBodySection1 = () => {
   const { movie_detail } = useSelector(
     ({ movie_detail }) => ({ movie_detail }),
     shallowEqual
@@ -18,8 +18,8 @@ const DetailBody = () => {
       <MovieDetailDesc data={movie_detail} />
       <MovieDetailCast data={movie_detail} />
       <PeopleLikeMovie />
-      <MovieDetailStory />
+      <MovieDetailStory data={movie_detail} />
     </div>
   );
 };
-export default DetailBody;
+export default DetailBodySection1;

@@ -40,7 +40,7 @@ const MovieDetailDesc = ({ data }) => {
                 <div className="d-flex flex-column justify-content-center flex-grow-1 text-light px-4 text-center">
                   <div className="text-lg font-weight-bold">Released</div>
                   <div className="text-sm">
-                    {moment(data.entity).format("MMM DD YYYY")}
+                    {moment(data.entity.release_date).format("MMM DD YYYY")}
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ const MovieDetailDesc = ({ data }) => {
                     (acc, current, index, source) =>
                       acc +
                       current.name +
-                      (source.length - 1 === index ? "" : ", "),
+                      (source.length - 1 === index ? " " : ", "),
                     ""
                   )}
                 </a>
@@ -94,8 +94,8 @@ const MovieDetailDesc = ({ data }) => {
                     (acc, current, index, source) =>
                       acc +
                       current.name +
-                      (source.length - 1 === index ? "" : ","),
-                    " "
+                      (source.length - 1 === index ? "" : ", "),
+                    ""
                   )}
                 </a>
               </div>

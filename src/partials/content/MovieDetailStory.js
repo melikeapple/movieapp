@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Section } from "./Section";
+import _ from "lodash";
 
-const MovieDetailStory = () => {
+const MovieDetailStory = ({ data }) => {
+  const [crew, setCrew] = useState();
+
+  useEffect(() => {
+    if (data.entity && data.entity.credits) {
+      setCrew(
+        _.find(
+          data.entity.credits.crew,
+          ({ department }) => department === "Writing"
+        )
+      );
+    }
+  }, [data.entity]);
+
   return (
     <>
       <div className="container">
@@ -13,14 +27,12 @@ const MovieDetailStory = () => {
                 <div className="text-dark text-md font-weight-bold pb-2 pt-6">
                   Storyline...
                 </div>
-                <div className="text-left">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                <div className="text-left text-sm mb-2">
+                  {data.entity && data.entity.overview}
+                </div>
+                <div className="text-left text-sm pt-3">
+                  Written by:
+                  {crew && crew.name}
                 </div>
               </Section.Body>
             </Section>

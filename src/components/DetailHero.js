@@ -3,6 +3,7 @@ import { useSelector, shallowEqual } from "react-redux";
 import moment from "moment";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import StarIcon from "@material-ui/icons/Star";
+import _ from "lodash";
 
 const DetailHero = () => {
   const { movie_detail } = useSelector(
@@ -41,12 +42,21 @@ const DetailHero = () => {
                     {movie_detail.entity.original_title}
                   </h1>
                   <div className="d-flex font-weight-bold text-xl">
-                    {movie_detail.entity.runtime}min |
-                    {movie_detail.entity.genres.map((genre, index) => (
-                      <div key={index} className="px-2 text-light">
-                        {genre.name}
-                      </div>
-                    ))}
+                    {movie_detail.entity &&
+                      movie_detail.entity.genres.length > 0 && (
+                        <div className="px-2 text-light">
+                          <div className="px-2 text-light">
+                            {_.reduce(
+                              movie_detail.entity.genres,
+                              (acc, current, index, source) =>
+                                acc +
+                                current.name +
+                                (source.length - 1 === index ? "" : ", "),
+                              ""
+                            )}
+                          </div>
+                        </div>
+                      )}
                   </div>
                 </div>
               </Col>

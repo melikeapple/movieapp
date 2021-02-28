@@ -3,7 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { actions } from "../store/ducks/movie.detail.duck";
 import DetailHero from "../components/DetailHero";
-import DetailBody from "../components/DetailBody";
+import DetailBodySection1 from "../components/DetailBodySection1";
+import MovieDetailVideos from "../partials/content/MovieDetailVideos";
+import DetailBodySection2 from "../components/DetailBodySection2";
 
 const DetailPage = () => {
   const dispatch = useDispatch();
@@ -33,7 +35,7 @@ const DetailPage = () => {
         >
           <Row>
             <Col lg={8} className="pr-md-0">
-              <DetailBody />
+              <DetailBodySection1 />
             </Col>
             <Col lg={4} className="pl-md-0">
               <div
@@ -42,7 +44,7 @@ const DetailPage = () => {
                   backgroundColor: "#1F1F1F",
                 }}
               >
-                asdas
+                <DetailBodySection2 />
               </div>
             </Col>
           </Row>
