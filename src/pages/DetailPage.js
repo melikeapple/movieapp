@@ -4,7 +4,6 @@ import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { actions } from "../store/ducks/movie.detail.duck";
 import DetailHero from "../components/DetailHero";
 import DetailBodySection1 from "../components/DetailBodySection1";
-import MovieDetailVideos from "../partials/content/MovieDetailVideos";
 import DetailBodySection2 from "../components/DetailBodySection2";
 
 const DetailPage = () => {
@@ -19,7 +18,9 @@ const DetailPage = () => {
 
   useEffect(() => {
     dispatch(actions.movieDetailRequest(query));
-    dispatch(actions.movieDetailRequestResetStore());
+    return () => {
+      dispatch(actions.movieDetailRequestResetStore());
+    };
   }, [query]);
 
   return (
@@ -37,14 +38,13 @@ const DetailPage = () => {
             <Col lg={8} className="pr-md-0">
               <DetailBodySection1 />
             </Col>
-            <Col lg={4} className="pl-md-0">
-              <div
-                className="h-100"
-                style={{
-                  backgroundColor: "#1F1F1F",
-                }}
-              >
-                <DetailBodySection2 />
+            <Col
+              lg={4}
+              className="pl-md-0"
+              style={{ backgroundColor: "#1F1F1F" }}
+            >
+              <div className="h-100">
+                <DetailBodySection2 query={query} />
               </div>
             </Col>
           </Row>

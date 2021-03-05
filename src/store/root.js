@@ -8,6 +8,9 @@ import * as popular_movies from "./ducks/popular.movie.duck";
 import * as trend_movies from "./ducks/trend.movie.duck";
 import * as movie_detail from "./ducks/movie.detail.duck";
 import * as recommended_movies from "./ducks/movie.recommend.duck";
+import * as movie_trailer from "./ducks/movie.trailers.duck";
+import * as movie_photos from "./ducks/movie.photos.duck";
+
 export const rootReducer = (history) =>
   combineReducers({
     router: connectRouter(history),
@@ -16,6 +19,8 @@ export const rootReducer = (history) =>
     trend_movies: trend_movies.reducer,
     movie_detail: movie_detail.reducer,
     recommended_movies: recommended_movies.reducer,
+    movie_trailer: movie_trailer.reducer,
+    movie_photos: movie_photos.reducer,
   });
 
 export function* rootSaga() {
@@ -26,5 +31,7 @@ export function* rootSaga() {
     fork(trend_movies.saga),
     fork(movie_detail.saga),
     fork(recommended_movies.saga),
+    fork(movie_trailer.saga),
+    fork(movie_photos.saga),
   ]);
 }

@@ -17,8 +17,10 @@ const PeopleLikeMovie = () => {
   useEffect(() => {
     if (query.id) {
       dispatch(actions.recommendedMovieRequest(query.id));
-      dispatch(actions.recommendedMovieResetStore());
     }
+    return () => {
+      dispatch(actions.recommendedMovieResetStore());
+    };
   }, []);
 
   return (

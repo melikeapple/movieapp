@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Col, Row, Container, Card, Badge } from "react-bootstrap";
 import ContentLoader from "react-content-loader";
 import Slider from "react-slick";
-
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import moment from "moment";
