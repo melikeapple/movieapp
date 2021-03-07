@@ -12,7 +12,7 @@ const MovieDetailVideos = ({ id, data }) => {
   useEffect(() => {
     dispatch(actions.movieTrailerRequest(id));
     return () => {
-      dispatch(actions.movieTrailerRequest());
+      dispatch(actions.movieTrailerResetStore());
     };
   }, [id]);
 
@@ -28,7 +28,7 @@ const MovieDetailVideos = ({ id, data }) => {
           <PlayArrowIcon className="video-wrapper-icon  text-light" />
           <div>
             <img
-              className="w-100"
+              className="video-wrapper-img w-100"
               src={
                 data.entity && data.entity.backdrop_path
                   ? `https://image.tmdb.org/t/p/original/${data.entity.backdrop_path}`
@@ -36,8 +36,9 @@ const MovieDetailVideos = ({ id, data }) => {
               }
               alt="{data.entity.original_title}"
             />
-            <div className="text-light py-4">
-              See all videos <DoubleArrowIcon className="text-sm" />
+            <div className="text-sm text-light py-4">
+              See all videos
+              <DoubleArrowIcon className="text-sm" />
               {data.entity &&
                 data.entity.videos &&
                 data.entity.videos.results.length > 0 &&
