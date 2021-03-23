@@ -25,7 +25,8 @@ const MovieDetailCast = ({ data }) => {
                         <tr>
                           <th className="table-poster">
                             <img
-                              className="h-100"
+                              style={{ objectFit: "cover" }}
+                              className="h-100 w-100"
                               src={
                                 cas.profile_path
                                   ? `https://image.tmdb.org/t/p/original/${cas.profile_path}`

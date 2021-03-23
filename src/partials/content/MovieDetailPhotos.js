@@ -14,7 +14,7 @@ const MovieDetailPhotos = ({ data }) => {
         <div className="row">
           <div className="col">
             <div className="text-light pb-3">Photos</div>
-            {data.entity && data.entity.images && (
+            {data.entity && data.entity.images && data.entity.images.backdrops && (
               <Carousel
                 activeIndex={index}
                 onSelect={handleSelect}
@@ -27,20 +27,20 @@ const MovieDetailPhotos = ({ data }) => {
                       src={
                         image.file_path
                           ? `https://image.tmdb.org/t/p/original/${image.file_path}`
-                          : `https://image.tmdb.org/t/p/original/${data.entity.backdrop_path}`
+                          : "https://www.bnsf.com/about-bnsf/virtual-train-tour/images/orionthemes-placeholder-image.png"
                       }
-                      alt=""
+                      alt={image.title}
                     />
                   </Carousel.Item>
                 ))}
+                <div
+                  className="text-light text-sm py-4"
+                  style={{ cursor: "pointer" }}
+                >
+                  See all photos <DoubleArrowIcon className="text-sm" />
+                </div>
               </Carousel>
             )}
-            <div
-              className="text-light text-sm py-4"
-              style={{ cursor: "pointer" }}
-            >
-              See all photos <DoubleArrowIcon className="text-sm" />
-            </div>
           </div>
         </div>
       </div>
