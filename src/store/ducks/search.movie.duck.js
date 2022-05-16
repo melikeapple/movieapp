@@ -64,36 +64,35 @@ export const actions = {
 };
 
 export function* saga() {
-  yield takeLatest(
-    actionTypes.SearchMovieRequest,
-    function* SearchMovieSaga({ payload }) {
-      try {
-        const { response, error } = yield call(
-          axios.get,
-          `http://api.themoviedb.org/3/search/multi?api_key=b0d65862c66030895d7983da2bd70edd&language=en-US&page=1&include_adult=false&query=${payload.inputValue}`
-        );
+  yield takeLatest(actionTypes.SearchMovieRequest, function* SearchMovieSaga({
+    payload,
+  }) {
+    try {
+      const { response, error } = yield call(
+        axios.get,
+        `https://api.themoviedb.org/3/search/multi?api_key=b0d65862c66030895d7983da2bd70edd&language=en-US&page=1&include_adult=false&query=${payload.inputValue}`
+      );
 
-        // yield delay(3000);
+      // yield delay(3000);
 
-        if (error) {
-          yield put(actions.searchMovieRequestError(error));
-          payload.callback([]);
-          return;
-        }
-
-        yield put(actions.searchMovieRequestSuccess(response));
-        payload.callback(
-          _.map(response.results, (entity) => ({
-            id: entity.id,
-            label: entity.original_title,
-            value: _.kebabCase(entity.original_title),
-          }))
-        );
-        console.log("response:", response);
-      } catch (e) {
-        console.log("Saga Error:", e);
+      if (error) {
+        yield put(actions.searchMovieRequestError(error));
         payload.callback([]);
+        return;
       }
+
+      yield put(actions.searchMovieRequestSuccess(response));
+      payload.callback(
+        _.map(response.results, (entity) => ({
+          id: entity.id,
+          label: entity.original_title,
+          value: _.kebabCase(entity.original_title),
+        }))
+      );
+      console.log("response:", response);
+    } catch (e) {
+      console.log("Saga Error:", e);
+      payload.callback([]);
     }
-  );
+  });
 }
