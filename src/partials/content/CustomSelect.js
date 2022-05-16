@@ -26,16 +26,16 @@ const CustomSelect = () => {
   const loadOptions = debounce(_loadOptions, 1000);
 
   const onChange = (props, a, b) => {
-    console.log("props", props);
     if (props) {
       dispatch(push(`/detail?id=${props.id}`));
     }
+    e.preventDefault();
   };
 
   const CustomOption = ({ children, innerProps, isDisabled }) => {
     return !isDisabled ? <div {...innerProps}>{children}</div> : null;
   };
-
+  console.log("custom options", CustomOption);
   const LoadingMessage = (props) => {
     return (
       <div
@@ -52,19 +52,23 @@ const CustomSelect = () => {
   const customStyles = {
     control: (base, state) => ({
       ...base,
-      width: 300,
       background: "#0B071E",
-      color: "white",
+      width: 300,
       border: "none",
-      // Overwrittes the different states of border
       boxShadow: state.isFocused ? null : null,
       "&:hover": {
-        // Overwrittes the different states of border
         border: state.isFocused ? "0" : "black",
       },
     }),
+    singleValue: (base) => ({
+      ...base,
+      color: "#fff",
+    }),
+    input: (base) => ({
+      ...base,
+      color: "#fff",
+    }),
   };
-
   return (
     <div>
       <Select

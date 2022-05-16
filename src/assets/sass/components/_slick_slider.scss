@@ -1,6 +1,6 @@
 .slick-slider {
   height: 100%;
-  background-color: white;
+  background-color: transparent;
 
   .slick-arrow {
     &::before {
@@ -10,9 +10,6 @@
 
   .slick-list {
     height: 100%;
-
-    .slick-track {
-    }
   }
 }
 

@@ -2,8 +2,6 @@ import React from "react";
 import { Image } from "react-bootstrap";
 
 const MovieDetailPoster = ({ data }) => {
-  console.log("posterData:", data);
-  console.log("posterimage:", data.entity);
   return (
     <>
       <div className="col-md-4">

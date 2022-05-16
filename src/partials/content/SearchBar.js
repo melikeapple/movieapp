@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { Row, Col, Container, Nav, Navbar } from "react-bootstrap";
+import { Row, Col, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { actions } from "../../store/ducks/search.movie.duck";
 import CustomSelect from "./CustomSelect";
 
@@ -50,11 +50,33 @@ const SearchBar = () => {
                   >
                     IMDb
                   </Link>
-                  <Nav className="mr-auto">
-                    <Nav.Link href="#home" className=" text-light">
-                      Discover
-                    </Nav.Link>
-                  </Nav>
+                  <Navbar.Toggle
+                    aria-controls="basic-navbar-nav"
+                    variant="dark"
+                    bg="dark"
+                  />
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                      <NavDropdown
+                        title="Genre"
+                        id="basic-nav-dropdown"
+                        className="white"
+                      >
+                        <NavDropdown.Item
+                          href="#action/3.1"
+                          className="text-light"
+                        >
+                          Action
+                        </NavDropdown.Item>
+                        <NavDropdown.Item
+                          href="#action/3.2"
+                          className="text-light"
+                        >
+                          Another action
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                    </Nav>
+                  </Navbar.Collapse>
                   <Nav>
                     <CustomSelect />
                   </Nav>
@@ -64,56 +86,6 @@ const SearchBar = () => {
           </Container>
         </div>
       </div>
-      {/*<div className="d-flex">*/}
-      {/*  <DropdownSelect*/}
-      {/*    label="Genre"*/}
-      {/*    placeholder={"Seçin"}*/}
-      {/*    disabled={false}*/}
-      {/*    onSelect={(payload) => onSelect(payload, "with_genres")}*/}
-      {/*    selectFirstItem={true}*/}
-      {/*    data={[*/}
-      {/*      {*/}
-      {/*        id: 1,*/}
-      {/*        title: "All",*/}
-      {/*      },*/}
-      {/*      {*/}
-      {/*        id: 2,*/}
-      {/*        title: "Action",*/}
-      {/*      },*/}
-      {/*      {*/}
-      {/*        id: 3,*/}
-      {/*        title: "Comedy",*/}
-      {/*      },*/}
-      {/*      {*/}
-      {/*        id: 4,*/}
-      {/*        title: "Horror",*/}
-      {/*      },*/}
-      {/*    ]}*/}
-      {/*  />{" "}*/}
-      {/*  <DropdownSelect*/}
-      {/*    label="Year"*/}
-      {/*    onSelect={(payload) => onSelect(payload, "year")}*/}
-      {/*    selectFirstItem*/}
-      {/*    data={[*/}
-      {/*      {*/}
-      {/*        id: 1,*/}
-      {/*        title: "2021",*/}
-      {/*      },*/}
-      {/*      {*/}
-      {/*        id: 2,*/}
-      {/*        title: "2020",*/}
-      {/*      },*/}
-      {/*      {*/}
-      {/*        id: 3,*/}
-      {/*        title: "2019",*/}
-      {/*      },*/}
-      {/*      {*/}
-      {/*        id: 4,*/}
-      {/*        title: "2018",*/}
-      {/*      },*/}
-      {/*    ]}*/}
-      {/*  />*/}
-      {/*</div>*/}
     </>
   );
 };

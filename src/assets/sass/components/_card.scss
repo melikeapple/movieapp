@@ -3,8 +3,13 @@
   width: 100%;
   height: 100%;
 
+  .card-body{
+    background-color: get($colors, color-darkblue);
+    min-height: 160px;
+  }
   .card-img, .card-img-top {
     height: 230px;
     object-fit: cover;
   }
+  
 }

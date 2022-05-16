@@ -66,7 +66,7 @@ export function* saga() {
     try {
       const { response, error } = yield call(
         axios.get,
-        "https://api.themoviedb.org/3/trending/all/day?api_key=b0d65862c66030895d7983da2bd70edd"
+        "https://api.themoviedb.org/3/trending/movie/day?api_key=b0d65862c66030895d7983da2bd70edd"
       );
       yield delay(3000);
       if (error) {

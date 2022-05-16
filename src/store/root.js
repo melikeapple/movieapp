@@ -9,6 +9,7 @@ import * as trend_movies from "./ducks/trend.movie.duck";
 import * as movie_detail from "./ducks/movie.detail.duck";
 import * as recommended_movies from "./ducks/movie.recommend.duck";
 import * as movie_trailer from "./ducks/movie.trailers.duck";
+import * as upcoming_movies from "./ducks/upcoming.movie.duck";
 
 export const rootReducer = (history) =>
   combineReducers({
@@ -19,6 +20,7 @@ export const rootReducer = (history) =>
     movie_detail: movie_detail.reducer,
     recommended_movies: recommended_movies.reducer,
     movie_trailer: movie_trailer.reducer,
+    upcoming_movies: upcoming_movies.reducer,
   });
 
 export function* rootSaga() {
@@ -30,5 +32,6 @@ export function* rootSaga() {
     fork(movie_detail.saga),
     fork(recommended_movies.saga),
     fork(movie_trailer.saga),
+    fork(upcoming_movies.saga),
   ]);
 }

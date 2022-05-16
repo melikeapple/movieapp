@@ -1,0 +1,20 @@
+    .navbar-nav{
+        .dropdown-menu{
+            background: #1e1e36;
+            border-radius: 5px;
+        }
+        .dropdown-item:hover,
+        .dropdown-item:focus,
+        .dropdown-item.active,
+        .dropdown-item:active{
+            background-color: #E22A36 !important;
+        }
+       .nav-link{
+           color:white !important;
+           font-size: 18px;
+       }
+       .nav-link::after{
+           display: none;
+       }
+    }
+
