@@ -35,7 +35,6 @@ const CustomSelect = () => {
   const CustomOption = ({ children, innerProps, isDisabled }) => {
     return !isDisabled ? <div {...innerProps}>{children}</div> : null;
   };
-  console.log("custom options", CustomOption);
   const LoadingMessage = (props) => {
     return (
       <div
